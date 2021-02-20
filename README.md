@@ -16,7 +16,7 @@ However, we also wanted to combat loneliness and promote well-being. So, we exam
 ## How we built it:
 
 ## Challenges we ran into:
-### Challenge #1: Beginners
+### Challenge #1: We're all beginners
 All of us are relatively new to hackathons and coding generally, so it was a challenge to scope out a project we could realistically do with our experiences, while still learning new skills along the way. As we went through workshops, googled nonstop, stack overflowed, gave mini tutorials, and supported each other, we learned a lot along the way. 
 
 ## Accomplishments we're proud of:
