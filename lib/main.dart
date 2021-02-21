@@ -1,6 +1,90 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+class MyApp extends StatefulWidget {
+  // widgets in here can be rebuilt
+  @override
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  // widgets in here are persistent
+  int _questionIndex = 0;
+
+  void answerQuestion() {
+    setState(() {
+      // if questions change by questionIndex, otherwise stateless works fine
+      _questionIndex += 1;
+    });
+    print(_questionIndex);
+    print("You chose it.");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var _questions = [
+      "What's your name?",
+      "\nWhat is the main goal you want to pursue?\n"
+    ];
+
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text("Hey Pearl!"),
+            backgroundColor: Colors.pink[700],
+          ),
+          body: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(labelText: "Name"),
+              ),
+              Text(
+                _questions[1],
+                style: TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                child: Text("Fitness"),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pink[200],
+                ),
+                onPressed: answerQuestion,
+              ),
+              ElevatedButton(
+                  child: Text("Career"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.pink[300],
+                  ),
+                  onPressed: answerQuestion),
+              ElevatedButton(
+                child: Text("Relationships"),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pink[400],
+                ),
+                onPressed: answerQuestion,
+              ),
+              ElevatedButton(
+                  child: Text("Mental Health"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.pink[500],
+                  ),
+                  onPressed: answerQuestion)
+            ],
+          )),
+    );
+  }
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+/*import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -96,7 +180,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
@@ -109,3 +193,49 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
+
+/*
+import 'package:flutter/material.dart';
+
+final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+         centerTitle: true,
+         title: Text("Title")
+        ),
+        body: Column(
+          children:[
+            TextField(
+            decoration: InputDecoration(
+              hintText: "Username: ")
+            ),
+            TextField(
+            decoration: InputDecoration(
+              labelText: "Password")
+            ),
+            SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: (){
+
+                print("click");
+              },
+              child: Text("Log in")
+          )]
+        ),
+      )
+    );
+    }
+}
+ */
